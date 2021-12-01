@@ -6,7 +6,7 @@ export default function PhuHuynh() {
     <div>
       <Navbar />
       <div>
-        heelo
+        heeloll
       </div>
     </div>
   )
