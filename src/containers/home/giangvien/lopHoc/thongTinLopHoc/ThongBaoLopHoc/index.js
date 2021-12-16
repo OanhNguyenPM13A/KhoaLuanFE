@@ -6,10 +6,8 @@ import DanhSachThongBao from "./danhSachThongBao";
 export default function ThongBaoLopHoc(props) {
   const { data } = useSelector((state) => state.thongBaoSinhVienLopHocReducer,shallowEqual);
   const [itemEdit, setItemEdit] = useState(null);
-  const handleChinhSuaItem = (data)=>{
-    
-    setItemEdit(data)
-    // console.log(itemEdit);
+  const handleChinhSuaItem = (data)=>{ 
+    setItemEdit(data) 
   }
 
   return (
@@ -19,7 +17,7 @@ export default function ThongBaoLopHoc(props) {
       role="tabpanel"
       aria-labelledby="thongbao-tab"
     >
-      <div className="container">
+      <div className="container-fluid">
         <div className="row">
           <div className="col-md-6">
             <DanhSachThongBao data={data} handleChinhSuaItem={handleChinhSuaItem} id={props.id}/>

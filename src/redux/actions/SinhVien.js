@@ -1,14 +1,14 @@
-import { chinhSuaThongTinApi, getThongBaoSinhVienApi, XemThongTinApi } from "../../api/SinhVienApi";
-import { CHINHSUATHONGTINSINHVIEN_FAILED, CHINHSUATHONGTINSINHVIEN_SUCCESS, GETTHONGBAOSINHVIEN_FAILED, GETTHONGBAOSINHVIEN_SUCCESS, XEMTHONGTINSINHVIEN_FAILED, XEMTHONGTINSINHVIEN_SUCCESS } from "../constants/SinhVienConstants";
+import { chinhSuaThongTinApi, getDiemSinhVienSinhVienApi, getThongBaoSinhVienApi, XemThongTinApi } from "../../api/SinhVienApi";
+import { CHINHSUATHONGTINSINHVIEN_FAILED, CHINHSUATHONGTINSINHVIEN_SUCCESS, GETDIEMSINHVIEN_FAILED, GETDIEMSINHVIEN_SUCCESS, GETTHONGBAOSINHVIEN_FAILED, GETTHONGBAOSINHVIEN_SUCCESS, XEMTHONGTINSINHVIEN_FAILED, XEMTHONGTINSINHVIEN_SUCCESS } from "../constants/SinhVienConstants";
 import { displayLoading, hideLoading } from "./Loading";
 import { displayNotify } from "./Notify";
 
 //atcXemthong tin
 
-export const atcXemThongTinSinhVien = () => {
+export const atcXemThongTinSinhVien = (id) => {
   return (dispatch) => {
     // dispatch(displayLoading());
-    XemThongTinApi()
+    XemThongTinApi(id)
       .then((res) => { 
         dispatch(xemThongTinSuccess(res))
         // dispatch(hideLoading());
@@ -82,10 +82,10 @@ const chinhSuaThongTinFailed = (err) => {
 
 
 
-export const atcGetThongBao=(pageNumber)=>{
+export const atcGetThongBao=(id,pageNumber)=>{
   return (dispatch) => {
     dispatch(displayLoading());
-    getThongBaoSinhVienApi(pageNumber)
+    getThongBaoSinhVienApi(id,pageNumber)
       .then((res) => {
         dispatch(getThongBaosSuccess(res))
         dispatch(hideLoading());
@@ -110,6 +110,50 @@ const getThongBaosSuccess = (res) => {
 const getThongBaoFailed = (err) => {
   return {
     type: GETTHONGBAOSINHVIEN_FAILED,
+    payload: err
+  }
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+export const atcGetDiem=(id)=>{
+  return (dispatch) => {
+    dispatch(displayLoading());
+    getDiemSinhVienSinhVienApi(id)
+      .then((res) => {
+        dispatch(getDiemsSuccess(res))
+        dispatch(hideLoading());
+      })
+      .catch((err) => {
+        dispatch(getDiemFailed(err))
+        dispatch(hideLoading());
+        dispatch(displayNotify({message:'Lấy dữ liệu thất bại! Xin load lại trang!',type:'warning'}));
+
+      });
+  };
+}
+
+const getDiemsSuccess = (res) => {
+  return {
+    type: GETDIEMSINHVIEN_SUCCESS,
+    payload: res.data
+  }
+}
+
+
+const getDiemFailed = (err) => {
+  return {
+    type: GETDIEMSINHVIEN_FAILED,
     payload: err
   }
 }

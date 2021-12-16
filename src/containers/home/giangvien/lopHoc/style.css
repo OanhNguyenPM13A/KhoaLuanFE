@@ -1,22 +1,57 @@
-.lop-hoc {
-  border: none;
-  width: 100%;
-  padding: 10%;
-  font-weight: 600;
-  color: black;
-  cursor: pointer;
-  background-color: #fff;
+
+.lop-hoc{
+  padding: 3%;
+  width: 90%;
+  margin-top: 3%;
+  margin-bottom: 3%;
+  margin-left: 5%;
+  border-radius: 0.5rem;
+  background: #fff;
+  height: 740px;
+}
+/* .lop-hoc .emp-profile {
+  padding: 3%;
+  padding-top: 0.3%;
+  width: 90%;
+  margin-top: 3%;
+  margin-bottom: 3%;
+  margin-left: 5%;
+  border-radius: 0.5rem;
+  background: #fff;
+  height: 740px;
+  /* color: black;
+}   */
+
+.thong-tin-lop-hoc {
+  padding: 3%;
+  padding-top: 0.3%;
+  width: 90%;
+  margin-top: 3%;
+  margin-bottom: 3%;
+  margin-left: 5%;
+  border-radius: 0.5rem;
+  background: #fff;
+}
+.lop-hoc .lophoc-table{
+  position: static;
+  width: 80%;
+  margin-left: 10%;
+}
+.lop-hoc .pagination-lop {
+  position: absolute;
+  margin-top: 30px;
+  margin-left: 600px;
+
 }
 
 .lop-hoc .table {
   width: 100%;
-  margin-top: -10%;
-  margin-left: -5%;
+  margin-bottom: 0rem;
+  color: black;
 }
-.lop-hoc tfoot .pagination-foot{
-  margin-top: 2%;
-  margin-left: 60%;
+.lop-hoc .table td,.lop-hoc .table th {
+  padding: 0.38rem;
 }
-.between{
-  border-left: 2px solid gainsboro;
+.lop-hoc  .table th {
+  padding: 0.8rem;
 }

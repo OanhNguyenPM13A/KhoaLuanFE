@@ -16,7 +16,8 @@ export default function ThongTinchiTietLopHoc(props) {
       aria-labelledby="thongtin-tab"
     >
       <div className="row">
-        <div className="thong-tin-lop">
+        <div className="col-md-12">
+        <div className="thong-tin-lop" style={{marginTop: "-216px" , marginLeft: "100px"}}>
           <div className="info">
             <div className="panel-body bio-graph-info">
               <div className="row">
@@ -50,6 +51,7 @@ export default function ThongTinchiTietLopHoc(props) {
               </div>
             </div>
           </div>
+        </div>
         </div>
       </div>
     </div>

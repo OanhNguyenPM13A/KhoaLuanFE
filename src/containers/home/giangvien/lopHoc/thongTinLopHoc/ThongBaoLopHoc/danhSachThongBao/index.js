@@ -105,8 +105,8 @@ export default function DanhSachThongBao(props) {
       <div className="page-content page-container" id="page-content">
         <div className="padding">
           <div className="row">
-            <div className="col-sm-8">
-              <div className="container-fluid d-flex justify-content-center">
+            {/* <div className="col-md-8"> */}
+              <div className="d-flex justify-content-center">
                 <div
                   className="list list-row card"
                   id="sortable"
@@ -126,12 +126,14 @@ export default function DanhSachThongBao(props) {
                       })
                     : ""}
                 </div>
-              </div>
+              {/* </div> */}
             </div>
           </div>
         </div>
       </div>
-      {/* <Pagination data={{index:index,totalPage:totalPage,handelPageClick:handleClickThongBao}}/> */}
+      <div className="pagination">
+          <Pagination data={{index:index,totalPage:totalPage,handelPageClick:handelPageClick}}/>
+      </div>
     </div>
   );
 }

@@ -4,21 +4,22 @@ import { atcGetCanhBaoSinhViensLopHoc } from "../../../redux/actions/GiangVien";
 import { formatTinhTrangSinhVienText } from "../../../utils/format/formatTinhTrangSinhVien";
 import CanhBaoSinhVien from "../CanhBaoSinhVien";
 
-export default function SinhVienLopHocItem(props) {  
+export default function SinhVienLopHocItem(props) {   
     const dispatch = useDispatch();
   const openModalCanhBao = () => { 
     dispatch(atcGetCanhBaoSinhViensLopHoc(props.item.id));
   };
   return (
     <React.Fragment>
-      <tr>
+      <tr style={{backgroundColor:props.item.canhBao?"#ff79b0":""}}>
         <td>{props.stt}</td>
-        <td>{props.item.id}</td>
+        <td>{props.item.maSV}</td>
         <td>{props.item.hoTen}</td>
         <td>{props.item.gioiTinh == true ? "Nam" : "Nữ"}</td>
         <td>{props.item.email}</td>
         <td>{formatTinhTrangSinhVienText(props.item.trangThaiSinhVien)}</td>
         <td>"hoc hanh binh thuong"</td>
+        <td>9</td>
         <td>
           <button
             className="btn btn-link"

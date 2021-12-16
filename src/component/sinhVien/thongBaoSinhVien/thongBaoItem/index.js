@@ -5,9 +5,9 @@ export default function ThongBaoSinhVienItem(props) {
   const clickModal =()=>{
     props.handleClickThongBao(props.item)
   }
-  
+  console.log(props.item);
     return (
-        <div className="card card-body">
+        <div className="card card-body" >
         <div className="media align-items-center align-items-lg-start text-center text-lg-left flex-column flex-lg-row">
           <div className="mr-2 mb-3 mb-lg-0"> 
             <img
@@ -19,7 +19,7 @@ export default function ThongBaoSinhVienItem(props) {
           </div>
           <div className="media-body">
             <h6 className="media-title font-weight-semibold"> 
-              <a
+              <a style={{color:props.item.thongBaoType=="CANH_BAO"?"#ff6090":"steelblue"}}
                 href="#"
                 data-abc="true"
                 data-toggle="modal"

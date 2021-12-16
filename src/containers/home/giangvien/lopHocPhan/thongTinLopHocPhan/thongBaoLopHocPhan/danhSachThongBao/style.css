@@ -1,0 +1,204 @@
+/* body {
+  background-color: #f9f9fa;
+}
+
+/* .flex {
+  -webkit-box-flex: 1;
+  -ms-flex: 1 1 auto;
+  flex: 1 1 auto;
+} */
+
+/* @media (max-width: 991.98px) {
+  .padding {
+    padding: 1.5rem;
+  }
+} */
+
+/* @media (max-width: 767.98px) {
+  .padding {
+    padding: 1rem;
+  }
+} */
+
+.danh-sach-thong-bao{
+    height: 700px;
+    position: static;
+  }
+  .danh-sach-thong-bao .padding {
+    padding: 3rem;
+  }
+  
+  .danh-sach-thong-bao .card {
+    background: #fff;
+    border-width: 0;
+    border-radius: 0.25rem;
+    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.05);
+    margin-bottom: 1.5rem;
+  }
+  
+  .danh-sach-thong-bao .card {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    min-width: 0;
+    word-wrap: break-word;
+    background-color: #fff;
+    background-clip: border-box;
+    border: 1px solid rgba(19, 24, 44, 0.125);
+    border-radius: 0.25rem;
+  }
+  
+  .danh-sach-thong-bao .list-item {
+    position: relative;
+    display: -ms-flexbox;
+    display: flex;
+    -ms-flex-direction: column;
+    flex-direction: column;
+    min-width: 0;
+    word-wrap: break-word;
+  }
+  
+  .danh-sach-thong-bao  .list-item.block .media {
+    border-bottom-left-radius: 0;
+    border-bottom-right-radius: 0;
+  }
+  
+  .danh-sach-thong-bao  .list-item.block .list-content {
+    padding: 1rem;
+  }
+  
+  .danh-sach-thong-bao .w-40 {
+    width: 40px !important;
+    height: 40px !important;
+  } */
+  
+  .danh-sach-thong-bao .gd-primary {
+    color: #fff;
+    border: none;
+    background: #448bff linear-gradient(45deg, #448bff, #44e9ff);
+  }
+  
+  .danh-sach-thong-bao .flex {
+    -webkit-box-flex: 1;
+    -ms-flex: 1 1 auto;
+    flex: 1 1 auto;
+  }
+  
+  .danh-sach-thong-bao .text-color {
+    color: #5e676f;
+  }
+  
+  .danh-sach-thong-bao  .text-sm {
+    font-size: 0.825rem;
+  }
+  
+  .danh-sach-thong-bao  .h-1x {
+    height: 1.25rem;
+    overflow: hidden;
+    display: -webkit-box;
+    -webkit-line-clamp: 1;
+    -webkit-box-orient: vertical;
+  }
+  
+  .danh-sach-thong-bao  .no-wrap {
+    white-space: nowrap;
+  }
+  /* .list-row{
+      overflow: scroll;
+      -webkit-overflow-scrolling: touch;
+  } */
+  
+  .danh-sach-thong-bao .list-row .list-item {
+    position: relative;
+    display: -ms-flexbox;
+    display: flex;
+    -ms-flex-direction: row;
+    flex-direction: row;
+    -ms-flex-align: center;
+    align-items: center;
+    padding: 0.75rem 0.625rem;
+    width: 100%;
+  }
+  /* 
+  .list-item {
+   
+    -ms-flex-direction: column;
+    flex-direction: column;
+    min-width: 0;
+    word-wrap: break-word;
+    width: 100%;
+  } */
+  
+  .danh-sach-thong-bao .list-row .list-item > * {
+    padding-left: 0.625rem;
+    padding-right: 0.625rem;
+  }
+  
+  .danh-sach-thong-bao .dropdown {
+    position: relative;
+  }
+  
+  .danh-sach-thong-bao a:focus,
+  .danh-sach-thong-bao a:hover {
+    text-decoration: none;
+  }
+  
+  .danh-sach-thong-bao list-item {
+    background: white;
+  }
+  
+  .danh-sach-thong-bao .justify-content-center {
+    margin-left: -4%;
+    width: 100%;
+    margin-top: -11%;
+  }
+  
+  .danh-sach-thong-bao .form-control:focus {
+    box-shadow: none;
+  }
+  
+  .danh-sach-thong-bao .form-control-underlined {
+    border-width: 0;
+    border-bottom-width: 1px;
+    border-radius: 0;
+    padding-left: 0;
+  }
+  .danh-sach-thong-bao .form-control::placeholder {
+    font-size: 0.95rem;
+    color: #aaa;
+    font-style: italic;
+  }
+  .danh-sach-thong-bao .search {
+    margin-top: -3%;
+    margin-bottom: 4%;
+  }
+  .danh-sach-thong-bao .input-group-append i {
+    margin-top: 95%;
+    margin-left: -28%;
+  }
+  .danh-sach-thong-bao .input-group-append {
+    margin-left: 5px;
+  }
+  .danh-sach-thong-bao .p-1 {
+    width: 90%;
+    border: 1px solid steelblue;
+  }
+  
+  .danh-sach-thong-bao .selected {
+    margin-bottom: 5%;
+    margin-left: 55%;
+  }
+  
+  .danh-sach-thong-bao .form-select {
+    height: 30px;
+    border: solid 2px steelblue;
+    border-radius: 5px;
+  }
+  .danh-sach-thong-bao .card {
+    width: 100%;
+  }
+  .danh-sach-thong-bao .pagination{
+    position: absolute;
+    left: 253px;
+    top: 340px;
+  }

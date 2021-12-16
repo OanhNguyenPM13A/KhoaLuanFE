@@ -19,7 +19,8 @@ export default function ThongBao() {
 
 
   const handelPageClick = (page) => {
-    dispatch(atcGetThongBao(page.selected));  
+    const idget = localStorage.getItem("idsv")?localStorage.getItem("idsv"):localStorage.getItem("id");
+    dispatch(atcGetThongBao(idget,page.selected));  
     setindex(data.paginationMeta.pageNumber)
   };
 

@@ -1,14 +1,14 @@
-import React, { lazy, Suspense, useEffect } from "react";
+import React, { useEffect } from "react";
 import { useDispatch } from "react-redux";
 import { Route, Switch } from "react-router";
 import { BrowserRouter } from "react-router-dom";
 import { CheckAuthApi } from "../../../api/TaiKhoanApi";
-import LoadingComponent from "../../../component/GlobalSettings/LoadingComponent";
 import Navbar from "../../../component/navbar";
-import { atcGetDanhSachLopHoc } from "../../../redux/actions/GiangVien";
-import { GiangVienRoutes, SinhVienRoutes } from "../../../routers";
+import { atcGetDanhSachLopHoc, atcGetDanhSachLopHocPhan } from "../../../redux/actions/GiangVien";
+import { GiangVienRoutes } from "../../../routers";
 import DoiMatKhau from "../../doiMatKhau";
-const ThongTinLopHoc = lazy(() => import("./lopHoc/thongTinLopHoc"));
+import ThongTinLopHoc from "./lopHoc/thongTinLopHoc";
+import ThongTinLopHocPhan from "./lopHocPhan/thongTinLopHocPhan";
 
 export default function GiangVien(props) {
   const dispatch = useDispatch();
@@ -19,9 +19,9 @@ export default function GiangVien(props) {
     })
       .then((res) => {
         if (res.data.active === false) {
-          props.history.replace("/");
           localStorage.removeItem("id");
           localStorage.removeItem("AccessToken");
+          props.history.replace("/login");
         }
         if (res.data.role === "SINH_VIEN") {
           props.history.replace("/sinhvien");
@@ -34,6 +34,7 @@ export default function GiangVien(props) {
         }
 
         dispatch(atcGetDanhSachLopHoc(0));
+        dispatch(atcGetDanhSachLopHocPhan(0));
       })
       .catch((err) => {
         props.history.replace("/");
@@ -42,10 +43,10 @@ export default function GiangVien(props) {
       });
   }, []);
   return (
+    <>
     <BrowserRouter>
       <Navbar routers={GiangVienRoutes} history={props.history} />
-      <Suspense fallback={LoadingComponent}>
-        <Switch>
+      <Switch>
         <Route exact path="/giangvien/doimatkhau" component={DoiMatKhau} />
 
           {GiangVienRoutes.map((route) => {
@@ -63,9 +64,14 @@ export default function GiangVien(props) {
             path="/giangvien/lophoc/:id"
             component={ThongTinLopHoc}
           />
+           <Route
+            exact
+            path="/giangvien/lophocphan/:id"
+            component={ThongTinLopHocPhan}
+          />
 
         </Switch>
-      </Suspense>
     </BrowserRouter>
+    </>
   );
 }

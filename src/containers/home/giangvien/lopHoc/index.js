@@ -11,8 +11,7 @@ export default function LopHoc() {
   const [totalPage, setTotalPage] = useState(10);
   const [index, setindex] = useState(0);
   const [dataItem, setDataItem] = useState();
-  const handleClickLopHoc = () => {
-    console.log("");
+  const handleClickLopHoc = () => { 
   }
 
 
@@ -22,17 +21,17 @@ export default function LopHoc() {
     setindex(data.paginationMeta.pageNumber)
   };
 
-  useEffect(() => {
-    console.log(data);
+  useEffect(() => { 
     setTotalPage(data.paginationMeta.totalPage)
   }, []);
 
   return (
     <div className="lop-hoc">
-      <table className="table table-bordered">
+     <div className="lophoc-table">
+     <table className="table table-bordered">
         <thead>
-          <tr style={{ backgroundColor: "rgb(179, 224, 255)", textAlign: "center" }}>
-            <th scope="col">#</th>
+          <tr  style={{ backgroundColor: 'skyblue', textAlign: "center" }}>
+            <th scope="col">STT</th>
             <th scope="col">Mã lớp</th>
             <th scope="col">Tên lớp</th>
             <th scope="col">Sỉ số</th>
@@ -47,9 +46,12 @@ export default function LopHoc() {
           }) : <tr></tr>}
         </tbody>
       </table>
+     </div>
+      <div className="pagination-lop">
       <Pagination
         data={{ index: index, totalPage: totalPage, handelPageClick: handelPageClick }}
       />
+      </div>
     </div>
   );
 }

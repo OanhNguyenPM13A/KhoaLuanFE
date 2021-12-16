@@ -2,10 +2,10 @@ import axios from 'axios';
 import { BASE_URL_API } from "./../constants/ApiConstant";
 import axiosClient from './axiosClient';
 
-const XemThongTinApi = async () => {
+const XemThongTinApi = async (id) => {
   return (await axiosClient())({
     method: 'GET',
-    url: BASE_URL_API + "api/solienlacdientu/v1/sinhvien/thongtin/" + localStorage.getItem("id"),
+    url: BASE_URL_API + "api/solienlacdientu/v1/sinhvien/thongtin/" + id,
 
 
   })
@@ -32,11 +32,25 @@ const chinhSuaThongTinApi = async (data) => {
     });
 };
 
-const getThongBaoSinhVienApi = async (page) => {
+const getThongBaoSinhVienApi = async (id,page) => {
   return (await axiosClient())({
     method: 'GET',
-    url: `${BASE_URL_API}api/solienlacdientu/v1/sinhvien/${localStorage.getItem("id")}/thongbaos`,
+    url: `${BASE_URL_API}api/solienlacdientu/v1/sinhvien/${id}/thongbaos`,
     params: { page: page, size: 5 }
+  })
+    .then((response) => {
+      return response;
+    })
+    .catch((error) => {
+      throw error;
+    });
+}
+
+
+const getDiemSinhVienSinhVienApi = async (id) => {
+  return (await axiosClient())({
+    method: 'GET',
+    url: `${BASE_URL_API}api/solienlacdientu/v1/sinhvien/${id}/diem`
   })
     .then((response) => {
       return response;
@@ -49,5 +63,7 @@ const getThongBaoSinhVienApi = async (page) => {
 export {
   XemThongTinApi,
   chinhSuaThongTinApi,
-  getThongBaoSinhVienApi
+  getThongBaoSinhVienApi,
+  getDiemSinhVienSinhVienApi
 }
+// localhost:8082/api/solienlacdientu/v1/sinhvien/2/diem

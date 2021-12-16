@@ -22,7 +22,9 @@ export const atcDangNhap = (taiKhoan, history) => {
         }
 
         if (role === "PHU_HUYNH") {
-          history.replace("/phuhuynh");
+          history.replace("/phuhuynh"); 
+          const {thongTin} =res.data;
+          localStorage.setItem("idsv", thongTin.idSv);
         }
 
         dispatch(hideLoading());
@@ -41,8 +43,7 @@ export const atcDangNhap = (taiKhoan, history) => {
 export const checkAuthAtc = (token, id, history) => {
   return (dispatch) => {
     CheckAuthApi({ token: token, id: id })
-      .then((res) => {
-        console.log(history);
+      .then((res) => { 
         console.log(res);
         if (res.active === false) {
           history.replace("/");
@@ -74,12 +75,15 @@ const DangNhapFailed = (err) => {
 
 export const atcChangePassword = (data) => {
   return (dispatch) => {
+    dispatch(displayLoading());
     changePasswordApi(data)
       .then((res) => {
+        dispatch(hideLoading());
         dispatch(displayNotify({message:'Thay đổi thành công ! ',type:'success'}))
 
       })
       .catch((err) => { 
+        dispatch(hideLoading());
         dispatch(displayNotify({message:'Thao tác không thành công ! '+err.response.data.message,type:'warning'}))
       });
   };
@@ -103,14 +107,14 @@ const changePasswordFailed = (err) => {
 
 export const atcImgUrl = (data) => {
   return (dispatch) => {
+    dispatch(displayLoading());
     changeImgUrlApi(data)
       .then((res) => {
-        dispatch(atcXemThongTinSinhVien());
+        dispatch(atcXemThongTinSinhVien(localStorage.getItem("id"))); 
         dispatch(displayNotify({message:'Thay đổi thành công! ',type:'success'}))
         dispatch(hideLoading())
       })
-      .catch((err) => {
-        console.log(err.response.data.message);
+      .catch((err) => { 
         dispatch(displayNotify({message:'Thao tác không thành công ! ',type:'warning'}))
         dispatch(hideLoading())
       });

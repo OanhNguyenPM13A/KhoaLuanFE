@@ -6,21 +6,22 @@ import "./style.css";
 export default function Navbar(props) {
   const { pathname } = props.history.location;
   const handleLogout = () => {
-    localStorage.removeItem("id");
-    localStorage.removeItem("AccessToken");
+    // localStorage.removeItem("id");
+    // localStorage.removeItem("AccessToken");
+    localStorage.clear();
     props.history.replace("/login");
   };
   const handleChangePassword = () => {
-    // props.history.push()
-    // console.log(`${pathname}/doimatkhau`);
-  }
-
+  };
+  const getIndex = () => {
+    return `/${pathname.split("/")[1]}/trangchu`;
+  };
   return (
     <div className="nav-menu">
       <nav className="navbar navbar-expand-custom navbar-mainbg">
-        <a className="navbar-brand navbar-logo" href="#">
-          ECO
-        </a>
+        <NavLink className="navbar-brand navbar-logo" to={getIndex}>
+          Sổ Liên Lạc Điện Tử
+        </NavLink>
         <button
           className="navbar-toggler"
           type="button"
@@ -36,39 +37,80 @@ export default function Navbar(props) {
               <div className="left" />
               <div className="right" />
             </div>
-            {props.routers.map((router, index) => {
 
-              return (
-                <li className="nav-item" key={index}>
-                  <NavLink
-                    className="nav-link active"
-                    to={router.layout + router.path}
-                  >
-                    {router.name}
-                    {router.icon}
-                  </NavLink>
+            {/* <div> */}
+            <div className="menu-item">
+              <li className="nav-item">
+                <NavLink
+                  activeStyle={{
+                    marginTop: "10px",
+                    border: "2px solid darkgray",
+                    borderRadius: "10px 10px 0px 0px",
+                    borderBottom: "none",
+                    fontSize: "16px",
+                    color: "darkturquoise"
+                  }}
+                  className="nav-link active"
+                  to={getIndex}
+                >
+                  Trang chủ
+                </NavLink>
+              </li>
 
-                </li>
-              );
-            })}
-            {
-
-            }
+              {props.routers.map((router, index) => {
+                return (
+                  <li className="nav-item" key={index}>
+                    <NavLink
+                      activeStyle={{
+                        marginTop: "10px",
+                        border: "2px solid darkgray",
+                        borderRadius: "10px 10px 0px 0px",
+                        borderBottom: "none",
+                        fontSize: "16px",
+                        color: "darkturquoise"
+                      }}
+                      className="nav-link active"
+                      to={router.layout + router.path}
+                    >
+                      {router.name}
+                      {router.icon}
+                    </NavLink>
+                  </li>
+                );
+              })}
+              { }
+            </div>
 
             <div className="dropdown">
-              <button className="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+              <button
+                className="btn btn-secondary dropdown-toggle"
+                type="button"
+                id="dropdownMenuButton"
+                data-toggle="dropdown"
+                aria-haspopup="true"
+                aria-expanded="false"
+              >
                 <i className="fas fa-cog"></i>
               </button>
-              <div className="dropdown-menu" aria-labelledby="dropdownMenuButton">
-                <li className="dropdown-item" onClick={handleLogout}>Đăng xuất</li>
-                <NavLink className="dropdown-item" activeClassName="dropdown-item" to={`${pathname}/doimatkhau`}>Đổi mật khẩu</NavLink>
+              <div
+                className="dropdown-menu"
+                aria-labelledby="dropdownMenuButton"
+              >
+                <NavLink
+                  className="dropdown-item"
+                  activeClassName="dropdown-item"
+                  to={`${pathname}/doimatkhau`}
+                >
+                  Đổi mật khẩu
+                </NavLink>
+                <li className="dropdown-item" onClick={handleLogout}>
+                  Đăng xuất <i className="fas fa-sign-out-alt"></i>
+                </li>
               </div>
-
             </div>
           </ul>
         </div>
       </nav>
     </div>
-
   );
 }

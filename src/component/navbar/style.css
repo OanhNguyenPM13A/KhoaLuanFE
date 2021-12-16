@@ -7,7 +7,7 @@ body {
   margin: 0;
   padding: 0;
 }
-.nav-menu. i {
+.nav-menu i {
   margin-right: 10px;
 }
 /*----------bootstrap-navbar-css------------*/
@@ -165,7 +165,7 @@ body {
 }
 
 .nav-menu .dropdown {
-  position: relative;
+  position: static;
   right: 1%;
 }
 #dropdownMenuButton {
@@ -174,10 +174,19 @@ body {
 }
 
 .nav-menu .navbar-nav .dropdown-menu {
-  position: static;
-  top: 7%;
-  left: 89%;
+  top: 10%;
+  left: 90%;
   float: none;
-  position: fixed; /* Stay in place */
+  position: fixed;
   z-index: 1; /* Sit on top */
+}
+
+.nav-menu .menu-item a:hover {
+  /* background-color: cornflowerblue !important; */
+  margin-top: 10px;
+  border: 2px solid darkgrey;
+  border-radius: 10px 10px 0px 0px;
+  border-bottom: none;
+  font-size: 16px !important;
+  color: darkturquoise !important;
 }

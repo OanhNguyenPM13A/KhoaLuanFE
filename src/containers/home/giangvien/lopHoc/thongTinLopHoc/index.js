@@ -1,34 +1,26 @@
-  import React, { useEffect } from "react";
+import React, { useEffect } from "react";
 import { useDispatch } from "react-redux";
-import { atcGetSinhViensLopHoc, atcGetThongBaoSinhViensLopHoc } from "../../../../../redux/actions/GiangVien";
+import {
+  atcGetSinhViensLopHoc,
+  atcGetThongBaoSinhViensLopHoc,
+} from "../../../../../redux/actions/GiangVien";
 import DanhSachSinhVienLopHoc from "./DanhSachSinhVienLopHoc";
 import "./style.css";
 import ThongBaoLopHoc from "./ThongBaoLopHoc";
 import ThongTinchiTietLopHoc from "./ThongTinChiTietLopHoc";
-export default function ThongTinLopHoc(props) { 
+export default function ThongTinLopHoc(props) {
+  const { id } = props.match.params;
 
-
-  const {id} = props.match.params;  
- 
   const dispatch = useDispatch();
 
-
-
-
-
-
   useEffect(() => {
-    dispatch(atcGetSinhViensLopHoc(id,0))
-    dispatch(atcGetThongBaoSinhViensLopHoc(id,0))
-  }, [])
-
-
-
+    dispatch(atcGetSinhViensLopHoc(id, 0));
+    dispatch(atcGetThongBaoSinhViensLopHoc(id, 0));
+  }, []);
 
   return (
-    
     <div className="thong-tin-lop-hoc">
-      <div className="container emp-profile">
+      <div className="container-fluid emp-profile">
         <form method="post">
           <div className="row">
             <div className="col-md-12">
@@ -65,18 +57,19 @@ export default function ThongTinLopHoc(props) {
             </div>
           </div>
           <div className="row">
+            <div className="col-md-12">
               <div className="tab-content profile-tab" id="myTabContent">
-              <ThongTinchiTietLopHoc id={id}/>
-                <ThongBaoLopHoc id={id}/>
-               
+                <ThongTinchiTietLopHoc id={id} />
+                <ThongBaoLopHoc id={id} />
               </div>
+            </div>
           </div>
         </form>
-        
+        <div className="container-fluid emp-profile danhsach" style={{marginTop:'1=20px'}}>
+          
+          <DanhSachSinhVienLopHoc id={id}/>
+        </div>
       </div>
-     <div className="container emp-profile danhsach">
-        <DanhSachSinhVienLopHoc/>
-     </div>
     </div>
   );
 }

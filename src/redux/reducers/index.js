@@ -7,7 +7,12 @@ import thongBaoReducer from "./ThongBao/thongBaoReducer";
 import thongBaoSinhVienLopHocReducer from "./ThongBao/thongBaoSinhVienLopHocReducer";
 import canhBaoSinhVienOfGiangVienReducer from "./CanhBao/canhBaoSinhVienOfGiangVienReducer";
 import lopHocReducer from "./LopHoc/LopHocReducer";
+import lopHocPhanReducer from "./LopHocPhan/lopHocPhanReducer";
 import NotifyReducer from "./notify/NotifyReducer";
+import sinhViensLopHocPhanReducer from "./SinhVien/sinhVienLopHocPhanReducer";
+import diemReducer from "./DiemReducer/DiemReducer";
+import ngayNghiSinhVienReducer from "./ngayNghi/ngayNghiSinhVienReducer";
+ 
 const reducer = combineReducers({
   loadingReducer,
   sinhVienReducer,
@@ -18,6 +23,10 @@ const reducer = combineReducers({
   thongBaoSinhVienLopHocReducer,
   canhBaoSinhVienOfGiangVienReducer,
   NotifyReducer,
+  lopHocPhanReducer,
+  sinhViensLopHocPhanReducer,
+  diemReducer,
+  ngayNghiSinhVienReducer
 });
 
 export default reducer;

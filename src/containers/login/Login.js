@@ -9,8 +9,7 @@ export default function Login(props) {
   const dispatch = useDispatch();
   const handleInputChange =(e)=>{
     const { name, value } = e.target;
-    setTaiKhoan({ ...taiKhoan, [name]: value });
-    console.log(taiKhoan);
+    setTaiKhoan({ ...taiKhoan, [name]: value }); 
   }
 
   const onSubmit = (e)=>{
@@ -41,11 +40,9 @@ export default function Login(props) {
             }
           }
         })
-        .catch((err) => {
-          // props.history.replace("/");
+        .catch((err) => { 
           localStorage.removeItem("id");
-          localStorage.removeItem("AccessToken");
-          // log
+          localStorage.removeItem("AccessToken"); 
           return;
         });
     }, []);

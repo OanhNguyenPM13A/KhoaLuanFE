@@ -5,6 +5,7 @@ import { BrowserRouter } from "react-router-dom";
 import { CheckAuthApi } from "../../../api/TaiKhoanApi";
 import Navbar from "../../../component/navbar";
 import {
+  atcGetDiem,
   atcGetThongBao,
   atcXemThongTinSinhVien,
 } from "../../../redux/actions/SinhVien";
@@ -22,9 +23,11 @@ export default function SinhVien(props) {
     })
       .then((res) => {
         if (res.data.active === false) {
-          props.history.replace("/");
+
           localStorage.removeItem("id");
           localStorage.removeItem("AccessToken");
+          props.history.replace("/login");
+         
         }
         if (res.data.role === "SINH_VIEN") {
           props.history.replace("/sinhvien");
@@ -35,33 +38,35 @@ export default function SinhVien(props) {
         if (res.data.role === "PHU_HUYNH") {
           props.history.replace("/phuhuynh");
         }
-        dispatch(atcXemThongTinSinhVien());
-        dispatch(atcGetThongBao(0));
+        dispatch(atcXemThongTinSinhVien(localStorage.getItem("id")));
+        
+        dispatch(atcGetThongBao(localStorage.getItem("id"),0));
+        dispatch(atcGetDiem(localStorage.getItem("id")));
       })
       .catch((err) => {
-        props.history.replace("/");
+        props.history.replace("/login");
         localStorage.removeItem("id");
         localStorage.removeItem("AccessToken");
       });
   }, []);
   return (
     <BrowserRouter>
-      <Navbar routers={SinhVienRoutes} history={props.history} />
-      <Switch>
-      <Route exact path="/sinhvien/doimatkhau" component={DoiMatKhau} />
-        {SinhVienRoutes.map((route) => {
-          return (
-            <Route
-              key={route.path}
-              exact
-              path={route.layout + route.path}
-              component={route.component}
-            />
-          );
-        })}
+    <Navbar routers={SinhVienRoutes} history={props.history} />
+    <Switch>
+    <Route exact path="/sinhvien/doimatkhau" component={DoiMatKhau} />
+      {SinhVienRoutes.map((route) => {
+        return (
+          <Route
+            key={route.path}
+            exact
+            path={route.layout + route.path}
+            component={route.component}
+          />
+        );
+      })}
 
-      
-      </Switch>
-    </BrowserRouter>
+    
+    </Switch>
+  </BrowserRouter>
   );
 }

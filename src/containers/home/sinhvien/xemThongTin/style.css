@@ -4,6 +4,7 @@
   margin-bottom: 3%;
   border-radius: 0.5rem;
   background: #fff;
+  /* color: black; */
 }
 .profile-img {
   text-align: center;
@@ -43,9 +44,9 @@
   width: 195%;
   padding: 20%;
   font-weight: 600;
-  color: #6c757d;
+  color: white;
   cursor: pointer;
-  background-color: #dcdcde;
+  background-color: #0062cc;
 }
 .proile-rating {
   font-size: 12px;
@@ -110,4 +111,11 @@
   background-color: steelblue;
   border-radius: 1.5rem;
   color: white;
+}
+
+.profile .nav-link.active{
+  color: #0062cc;
+}
+.profile .nav-link{
+  color: black;
 }

@@ -1,14 +1,15 @@
 import { lazy } from "react";
-import ThongBao from "./containers/home/sinhvien/thongBao";
-const LopHoc = lazy(() => import('./containers/home/giangvien/lopHoc'));
-const LopHocPhan = lazy(() => import('./containers/home/giangvien/lopHocPhan'));
-const GiangVien = lazy(() => import('./containers/home/giangvien/GiangVien'));
-const PhuHuynh = lazy(() => import('./containers/home/phuhuynh/PhuHuynh'));
-const BangDiem = lazy(() => import('./containers/home/sinhvien/bangDiem'));
-const SinhVien = lazy(() => import('./containers/home/sinhvien/SinhVien'));
-const XemThongTin = lazy(() => import('./containers/home/sinhvien/xemThongTin'));
-const XinNghiHoc = lazy(() => import('./containers/home/sinhvien/xinNghiHoc'));
-const Login = lazy(() => import('./containers/login/Login'));
+import TrangChu from "./component/trangChu";
+import SinhVien from "./containers/home/sinhvien/SinhVien";
+import ThongBao from "./containers/home/sinhvien/thongBao"; 
+import XemThongTin from "./containers/home/sinhvien/xemThongTin";
+import XinNghiHoc from "./containers/home/sinhvien/xinNghiHoc";
+import BangDiem from "./containers/home/sinhvien/bangDiem";
+import Login from "./containers/login/Login";
+import LopHocPhan from "./containers/home/giangvien/lopHocPhan";
+import LopHoc from "./containers/home/giangvien/lopHoc";
+import GiangVien from "./containers/home/giangvien/GiangVien";
+import PhuHuynh from "./containers/home/phuhuynh/PhuHuynh";
 
 
 const LoginRoutes = [
@@ -49,18 +50,12 @@ const SinhVienRoutes = [
     component: ThongBao,
     layout: "/sinhvien",
   },
+
 ]
 
 
 
-const GiangVienRoutes = [
-  // {
-  //   path: "/xemthongtin",
-  //   name: "Xem thông tin",
-  //   icon: "",
-  //   // component: XemThongTin,
-  //   layout: "/giangvien",
-  // },
+const GiangVienRoutes = [ 
   {
     path: "/lophocphan",
     name: "Lớp học phần",
@@ -77,7 +72,26 @@ const GiangVienRoutes = [
 
 ]
 const PhuHuynhRoutes = [
-
+  {
+    path: "/xemthongtin",
+    name: "Thông tin sinh vien",
+    //   icon: Dashboard,
+    component: XemThongTin,
+    layout: "/phuhuynh",
+  }, {
+    path: "/bangdiem",
+    name: "Kết quả học tập",
+    icon: "",
+    component: BangDiem,
+    layout: "/phuhuynh",
+  },
+  {
+    path: "/thongbao",
+    name: "",
+    icon: <i className="fas fa-bell"></i>,
+    component: ThongBao,
+    layout: "/phuhuynh",
+  }
 ]
 
 
